@@ -1,0 +1,383 @@
+{
+  "id": "cadrille-image-workflow",
+  "revision": 0,
+  "last_node_id": 10,
+  "last_link_id": 8,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "GeomPackLoadMesh",
+      "pos": [
+        124,
+        125
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "TRIMESH",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "texture",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-geometrypack",
+        "Node name for S&R": "GeomPackLoadMesh"
+      },
+      "widgets_values": [
+        "3d/simple_cylinder.stl"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "CADFaceAnalysis",
+      "pos": [
+        1527,
+        -35
+      ],
+      "size": [
+        282,
+        384
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "cad_model",
+          "type": "CAD_MODEL",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cad_model",
+          "type": "CAD_MODEL",
+          "links": null
+        },
+        {
+          "name": "vtp_filepath",
+          "type": "STRING",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "json_filepath",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "top_30_by_edges",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "top_30_smallest_area",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-cadabra",
+        "Node name for S&R": "CADFaceAnalysis"
+      },
+      "widgets_values": [
+        0.1,
+        0.5,
+        1,
+        true,
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "CADAnalysisViewer",
+      "pos": [
+        1927,
+        -24
+      ],
+      "size": [
+        835,
+        1068
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vtp_filepath",
+          "type": "STRING",
+          "widget": {
+            "name": "vtp_filepath"
+          },
+          "link": 4
+        },
+        {
+          "name": "json_filepath",
+          "type": "STRING",
+          "widget": {
+            "name": "json_filepath"
+          },
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfyui-cadabra",
+        "Node name for S&R": "CADAnalysisViewer"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "normal",
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "LoadCadrilleModel",
+      "pos": [
+        190,
+        -113
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CADRILLE_MODEL",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "model_info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-cadabra",
+        "Node name for S&R": "LoadCadrilleModel"
+      },
+      "widgets_values": [
+        "SFT (recommended)",
+        "cuda",
+        "bfloat16"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CadQueryExecute",
+      "pos": [
+        1004,
+        -55
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "cadquery_code",
+          "type": "STRING",
+          "widget": {
+            "name": "cadquery_code"
+          },
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cad_model",
+          "type": "CAD_MODEL",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "step_file",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "status",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-cadabra",
+        "Node name for S&R": "CadQueryExecute"
+      },
+      "widgets_values": [
+        "",
+        10,
+        true
+      ]
+    },
+    {
+      "id": 1,
+      "type": "CadrilleImageInference",
+      "pos": [
+        550,
+        -50
+      ],
+      "size": [
+        350,
+        250
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CADRILLE_MODEL",
+          "link": 1
+        },
+        {
+          "name": "mesh",
+          "type": "TRIMESH",
+          "link": 2
+        },
+        {
+          "name": "image_front",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image_back",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image_left",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image_right",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "cadquery_code",
+          "type": "STRING",
+          "links": [
+            7
+          ]
+        },
+        {
+          "name": "code_preview",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-cadabra",
+        "Node name for S&R": "CadrilleImageInference"
+      },
+      "widgets_values": [
+        768,
+        128
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      1,
+      0,
+      "CADRILLE_MODEL"
+    ],
+    [
+      2,
+      6,
+      0,
+      1,
+      1,
+      "TRIMESH"
+    ],
+    [
+      4,
+      9,
+      1,
+      8,
+      0,
+      "STRING"
+    ],
+    [
+      5,
+      9,
+      2,
+      8,
+      1,
+      "STRING"
+    ],
+    [
+      7,
+      1,
+      0,
+      10,
+      0,
+      "STRING"
+    ],
+    [
+      8,
+      10,
+      0,
+      9,
+      0,
+      "CAD_MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.76,
+      "offset": [
+        -40,
+        625
+      ]
+    },
+    "frontendVersion": "1.33.10",
+    "workflowRendererVersion": "LG"
+  },
+  "version": 0.4
+}
