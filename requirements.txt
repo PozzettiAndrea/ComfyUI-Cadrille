@@ -1,0 +1,14 @@
+# Cadrille dependencies
+torch>=2.0.0
+numpy>=1.24.0
+trimesh>=3.20.0
+
+# HuggingFace model loading
+transformers>=4.30.0
+accelerate
+
+# Image processing
+Pillow
+
+# CadQuery execution (install via conda)
+# conda install -c conda-forge cadquery
