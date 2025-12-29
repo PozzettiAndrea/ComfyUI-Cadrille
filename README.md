@@ -1,3 +1,7 @@
+----------
+Work in Progress! This node is not finished.
+----------
+
 # ComfyUI-Cadrille
 
 Multi-modal CAD reconstruction from point clouds, images, or text. Includes CAD-Recode for code generation.
@@ -47,6 +51,12 @@ conda install -c conda-forge cadquery
 - accelerate
 - Pillow
 - cadquery (via conda)
+
+## Community
+
+Questions or feature requests? Open a [Discussion](https://github.com/PozzettiAndrea/ComfyUI-Cadrille/discussions) on GitHub.
+
+Join the [Comfy3D Discord](https://discord.gg/PN743tE5) for help, updates, and chat about 3D workflows in ComfyUI.
 
 ## Credits
 

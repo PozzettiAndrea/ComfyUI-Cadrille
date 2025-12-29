@@ -1,6 +1,6 @@
 [project]
 name = "comfyui-cadrille"
-description = "Cadrille: Multi-modal CAD Reconstruction - Originally from ComfyUI-CADabra"
+description = "THIS NODE IS WIP. Cadrille: Multi-modal CAD Reconstruction. Originally from ComfyUI-CADabra"
 version = "1.0.0"
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
